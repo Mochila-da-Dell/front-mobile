@@ -1,0 +1,37 @@
+<ion-header>
+    <ion-navbar>
+      <ion-title>cadastro</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+      <form>
+          <ion-list radio-group name="tipo">
+            <ion-list-header>
+              Tipo Perfil  
+            </ion-list-header>
+            <ion-item>
+              <ion-label>Professor</ion-label>
+              <ion-radio checked="true" value="1"></ion-radio>
+            </ion-item>
+            <ion-item>
+                <ion-label>Aluno</ion-label>
+                <ion-radio value="2"></ion-radio>
+            </ion-item>
+          </ion-list>
+          <ion-item>
+            <ion-label stacked>Nome*</ion-label>
+            <ion-input name="nome" type="text"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label stacked>Email*</ion-label>
+            <ion-input name="email" type="text"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label stacked>Telefone*</ion-label>
+            <ion-input name="telefone" type="text"></ion-input>
+          </ion-item>
+          <button ion-button block (click)="aluno()">Criar conta</button>
+        </form>
+  </ion-content>
+  

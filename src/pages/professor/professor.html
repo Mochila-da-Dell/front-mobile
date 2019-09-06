@@ -1,0 +1,44 @@
+<ion-header>
+    <ion-navbar>
+      <!--barra de navegação-->
+      <button ion-button menuToggle>
+        <!--Botão dentro barra de navegaçãp-->
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Professor</ion-title>
+    </ion-navbar>
+  </ion-header>
+  <ion-content padding>
+    <p>Perfil Professor</p>
+  
+    <ion-card>
+      <ion-list>
+        <button ion-item (click)="irParaCadastro()">
+          <ion-thumbnail item-start>
+            <img src="assets/imgs/cadastro.png">
+          </ion-thumbnail>
+          <h2>Cadastrar</h2>
+        </button>
+      </ion-list>
+    </ion-card>
+    <ion-card>
+        <ion-list>
+          <button ion-item >
+            <ion-thumbnail item-start>
+              <img src="assets/imgs/chamada.png">
+            </ion-thumbnail>
+            <h2>Realizar Chamada</h2>
+          </button>
+        </ion-list>
+      </ion-card>
+      <ion-card>
+          <ion-list>
+            <button ion-item>
+              <ion-thumbnail item-start>
+                <img src="assets/imgs/alterar.png">
+              </ion-thumbnail>
+              <h2>Alterar Chamada</h2>
+            </button>
+          </ion-list>
+        </ion-card>
+  </ion-content>

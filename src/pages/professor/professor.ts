@@ -10,17 +10,19 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-proftelainicial',
-  templateUrl: 'proftelainicial.html',
+  selector: 'page-professor',
+  templateUrl: 'professor.html',
 })
-export class ProftelainicialPage {
+export class ProfessorPage {
 
   constructor(
     public navCtrl: NavController, public navParams: NavParams) {
   }
-
+  public irParaCadastro(){
+    this.navCtrl.setRoot('CadastroPage')
+  }
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ProftelainicialPage');
+    console.log('ionViewDidLoad ProfessorPage');
   }
 
 }

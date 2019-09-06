@@ -1,0 +1,49 @@
+page-professor {
+  /* class */
+  .primeiro::after {
+   // width: auto;//delimitar a largura da div
+    content: "";
+    clear: both;
+    display: table;
+  } /*se declara uma class no css pelo .*/
+  .cadastro{
+    //margin: auto;//Cria espaço ao redor de elementos
+    //float: right;
+    //height: 20%;//altura de um elemento
+    //width: 100%;//lagura de um elemento
+    //padding: 0px;//gera espaço em torno do conteudo
+    border: 2px solid grey;//tamanho da borda e cor
+    //float: left;
+    //width: 50%;
+    //padding: 15px;//Preenchimento envolta do componente
+    //overflow: auto
+    float: left;
+    width: 50%;
+    padding: 50px;
+    height: 150px;
+  }
+  ion-icon {
+    
+    color: black;
+    //align:center; 
+    //size: 100%;//tamanho do elemento
+    font-size: 49px;//Aumenta o tamanho do icone
+    //float: center;
+    //height: 50%;//largura de um elemento
+    //width: 50%;//lagura de um elemento
+    padding-top: 10px;
+    //overflow: auto;
+    display: inline-block;
+    margin: auto;
+    width: 50%;
+    padding: 10px;  
+    text-align: center;
+  }
+  p {
+    //overflow: auto;
+    top: 4em;
+  }
+  * {
+    box-sizing: border-box;
+  }
+}
