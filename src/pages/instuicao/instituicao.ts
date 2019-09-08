@@ -3,19 +3,12 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 //import { ModalController} from '@ionic/angular';
 //import { CadastroInstituicaoPage } from '../cadastro-instituicao/cadastro-instituicao';
 
-/**
- * Generated class for the InstuicaoPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
-  selector: 'page-instuicao',
-  templateUrl: 'instuicao.html',
+  selector: 'page-instituicao',
+  templateUrl: 'instituicao.html',
 })
-export class InstuicaoPage {
+export class InstituicaoPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,){
 

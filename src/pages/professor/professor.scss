@@ -1,49 +1,44 @@
 page-professor {
-  /* class */
-  .primeiro::after {
-   // width: auto;//delimitar a largura da div
-    content: "";
-    clear: both;
-    display: table;
-  } /*se declara uma class no css pelo .*/
-  .cadastro{
-    //margin: auto;//Cria espaço ao redor de elementos
-    //float: right;
-    //height: 20%;//altura de um elemento
-    //width: 100%;//lagura de um elemento
-    //padding: 0px;//gera espaço em torno do conteudo
-    border: 2px solid grey;//tamanho da borda e cor
-    //float: left;
-    //width: 50%;
-    //padding: 15px;//Preenchimento envolta do componente
-    //overflow: auto
-    float: left;
-    width: 50%;
-    padding: 50px;
-    height: 150px;
+  .professor{
+    background-color:#4a98d9;
   }
-  ion-icon {
-    
-    color: black;
-    //align:center; 
-    //size: 100%;//tamanho do elemento
-    font-size: 49px;//Aumenta o tamanho do icone
-    //float: center;
-    //height: 50%;//largura de um elemento
-    //width: 50%;//lagura de um elemento
-    padding-top: 10px;
-    //overflow: auto;
+  div{
     display: inline-block;
-    margin: auto;
-    width: 50%;
-    padding: 10px;  
     text-align: center;
+ }
+  .cadastro{
+    float: center;
+    width: 45%;
+    padding: 15px;
+    border: 3px solid #4a98d9;
+    border-radius: 5px;
+    margin: 0px;//Não esta servindo para nada
+    padding: 20px; 
+    box-sizing: border-box;  
+    background-color: #ffffff;
   }
-  p {
-    //overflow: auto;
-    top: 4em;
+
+  i{
+    text-align: center;
+    font-size: 60px;
+    
   }
-  * {
-    box-sizing: border-box;
+  p{
+    font-size:15px;
+    text-align: center;
+    display: block;
+    color: black;
+  }
+  #instituicao{
+   color:#f5e900;
+  }
+  #curso{
+    color:#00f556;
+  }
+  #turma{
+    color: #d11d38;
+  }
+  #calendario{
+    color: #8126d1;
   }
 }

@@ -8,37 +8,12 @@
       <ion-title>Professor</ion-title>
     </ion-navbar>
   </ion-header>
-  <ion-content padding>
-    <p>Perfil Professor</p>
   
-    <ion-card>
-      <ion-list>
-        <button ion-item (click)="irParaCadastro()">
-          <ion-thumbnail item-start>
-            <img src="assets/imgs/cadastro.png">
-          </ion-thumbnail>
-          <h2>Cadastrar</h2>
-        </button>
-      </ion-list>
-    </ion-card>
-    <ion-card>
-        <ion-list>
-          <button ion-item >
-            <ion-thumbnail item-start>
-              <img src="assets/imgs/chamada.png">
-            </ion-thumbnail>
-            <h2>Realizar Chamada</h2>
-          </button>
-        </ion-list>
-      </ion-card>
-      <ion-card>
-          <ion-list>
-            <button ion-item>
-              <ion-thumbnail item-start>
-                <img src="assets/imgs/alterar.png">
-              </ion-thumbnail>
-              <h2>Alterar Chamada</h2>
-            </button>
-          </ion-list>
-        </ion-card>
+  <ion-content padding class="professor">  
+    <div>
+      <div id="instituicao" class="cadastro"><i class="fas fa-school"(click)=" irParaInstituicao()"><p>Cadastrar Instituição</p></i></div>
+      <div id="curso"class="cadastro"><i class="fas fa-graduation-cap"><p>Cadastrar Curso</p></i></div>
+      <div id="turma" class="cadastro"><i class="fas fa-users"><p>Cadastrar Turma</p></i></div>
+      <div id="calendario" class="cadastro"><i class="far fa-calendar-alt"><p>Visualizar Calendario</p></i></div>
+    </div>
   </ion-content>

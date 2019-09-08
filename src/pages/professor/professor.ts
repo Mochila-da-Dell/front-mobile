@@ -18,8 +18,8 @@ export class ProfessorPage {
   constructor(
     public navCtrl: NavController, public navParams: NavParams) {
   }
-  public irParaCadastro(){
-    this.navCtrl.setRoot('CadastroPage')
+  public irParaInstituicao(){
+    this.navCtrl.setRoot('InstituicaoPage')
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfessorPage');
