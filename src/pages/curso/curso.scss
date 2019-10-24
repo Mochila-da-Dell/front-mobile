@@ -1,11 +1,6 @@
-page-instituicao {
-    .button{
-      text-align: center;
-      width: 100%;
-      margin: 5px auto;
-    }  
-  .instituicao{
-        //background-color:#4a98d9;
+page-curso {
+    .curso{
+        background-color:#4a98d9;
       }
       input{
         width: 90%;
@@ -29,5 +24,9 @@ page-instituicao {
         background-color: #ffffff;
         font-style: italic; 
         font-size: 20px;
+      }
+      ion-thumbnail i{
+        text-align: center;
+        font-size: 60px;
       }
 }

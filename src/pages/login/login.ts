@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, IonicPage } from 'ionic-angular';
+import { NavController, IonicPage, ModalController } from 'ionic-angular';
 
 
 @IonicPage()
@@ -9,13 +9,24 @@ import { NavController, IonicPage } from 'ionic-angular';
 })
 export class LoginPage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, private modal: ModalController) {
 
   }
-  public irParaPaginaInicial(){
-    this.navCtrl.setRoot('ProfessorPage');
+  openModal(){
+    const myData = {
+      
+    }
+    const myModal = this.modal.create('ModalPage',)
+
+    myModal.present();
   }
-  public irParaCadastroUsuario(){
-    this.navCtrl.setRoot('CadastroUsuarioPage')
+  openModalAluno(){
+    const myData = {
+      
+    }
+    const myModal = this.modal.create('ModalAlunoPage',)
+
+    myModal.present();
   }
+  
 }

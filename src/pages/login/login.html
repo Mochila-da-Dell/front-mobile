@@ -2,24 +2,15 @@
 </ion-header>
 
 <ion-content padding class="login">
-  <h1>Sistema de chamada</h1>
+  <div>
+    <h2>Sistema de chamada</h2>
 
-  <img src= "assets/imgs/presenca_logo.png" alt = "logo">  
+    <img src= "assets/imgs/presenca_logo.png" alt = "logo">  
 
-  
-  <form><!--formulario para usário e senha-->
-    <ion-item>
-      <ion-label stacked>Email</ion-label>
-      <ion-input type="text"></ion-input> //Entrada de dados 
-    </ion-item>
-
-    <ion-item>
-      <ion-label stacked>Senha</ion-label>
-      <ion-input type="password"></ion-input> //Entrada de dados
-    </ion-item>
-    <button ion-button block (click)="irParaPaginaInicial()">Entrar</button>
-  </form>
-  
-  <button ion-button block outline (click)="irParaCadastroUsuario()">Cadastrar-se</button>
-
+    
+    <div><!--formulario para usário e senha-->
+        <button class="button-login" ion-button (click)="openModal()">Professor</button>
+        <button class="button-login" ion-button (click)="openModalAluno()">Aluno</button>
+    </div>   
+  </div>
 </ion-content>

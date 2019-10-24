@@ -12,12 +12,15 @@
 <ion-content padding class="instituicao">
   <div>
     <input type= "text" value="Procurar instituição">
-    <button><i class="fas fa-search"></i></button>
+    <button class="pesquisar"><i class="fas fa-search"></i></button>
   </div>
-  <div>
-    <button>Cadastrar instituição</button>
-  </div>
-  <div>
-      <div id="instituicao" class="cadastro"><i class="fas fa-school"(click)=" irParaInstituicao()"><p>Cadastrar Instituição</p></i></div>
-  </div>
+  <ion-list>
+    <ion-item *ngFor="let instituicao of instituicoes" (click)="irParaCadastroCurso(instituicao)">
+      <ion-thumbnail item-start>
+        <img src="assets/imgs/usjt_mooca.jpg">
+      </ion-thumbnail>
+      <h2>{{instituicao.nome}}</h2>
+      <p>{{instituicao.local}}</p>
+    </ion-item>
+  </ion-list>
 </ion-content>

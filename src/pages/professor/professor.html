@@ -1,19 +1,11 @@
-<ion-header>
-    <ion-navbar>
-      <!--barra de navegação-->
-      <button ion-button menuToggle>
-        <!--Botão dentro barra de navegaçãp-->
-        <ion-icon name="menu"></ion-icon>
-      </button>
-      <ion-title>Professor</ion-title>
-    </ion-navbar>
-  </ion-header>
-  
-  <ion-content padding class="professor">  
+   <ion-header>
+     <h1>Nome do professor</h1>
+   </ion-header>
+   <ion-content padding class="professor">  
     <div>
-      <div id="instituicao" class="cadastro"><i class="fas fa-school"(click)=" irParaInstituicao()"><p>Cadastrar Instituição</p></i></div>
-      <div id="curso"class="cadastro"><i class="fas fa-graduation-cap"><p>Cadastrar Curso</p></i></div>
+      <div id="instituicao" class="cadastro"><i class="fas fa-school"(click)=" irParaCadastro()"><p>Cadastro</p></i></div>
+      <div id="curso"class="cadastro"><i class="fas fa-graduation-cap" (click)=" irParaCurso()"><p>Fazer chamada</p></i></div>
       <div id="turma" class="cadastro"><i class="fas fa-users"><p>Cadastrar Turma</p></i></div>
-      <div id="calendario" class="cadastro"><i class="far fa-calendar-alt"><p>Visualizar Calendario</p></i></div>
+      <div id="calendario" class="cadastro"><i class="far fa-calendar-alt" (click)=" irParaCalendario()"><p>Visualizar Calendario</p></i></div>
     </div>
   </ion-content>
