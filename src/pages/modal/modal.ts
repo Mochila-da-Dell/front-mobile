@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController, AlertController } from 'ionic-angular';
+import { UsuariosServiceProvider } from '../../providers/usuarios-service/usuarios-service';
+import { Usuario } from '../../models/usuario';
 
 /**
  * Generated class for the ModalPage page.
@@ -15,18 +17,45 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
 })
 export class ModalPage {
 
-  constructor(public navCtrl: NavController, private view: ViewController) {
+  email: string;
+  senha: string;
+
+  constructor(public navCtrl: NavController, 
+    private view: ViewController,
+    private _alertCtrl: AlertController,
+    private _usuarioService: UsuariosServiceProvider) {
   }
   closeModal(){
     this.view.dismiss();
   }
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ModalPage');
+  efetuaLogin(){
+    console.log(this.email); 
+    console.log(this.senha);
+
+    this._usuarioService
+    .efetuaLogin(this.email, this.senha)
+    .subscribe(
+      (usuario: Usuario) => {
+        console.log(usuario)
+        this.navCtrl.setRoot('ProfessorPage');
+      },
+      () => {
+        this._alertCtrl.create({
+          title: 'Falha no login',
+          subTitle: 'Email ou senha incorretos! Verifique!',
+          buttons: [
+            {text: 'Ok'}
+          ]
+        }).present();
+      }
+    )
+    
+    
   }
   public irParaCadastroUsuario(){
     this.navCtrl.push('CadastroUsuarioPage')
   }
   public irParaPaginaInicial(){
-    this.navCtrl.push('ProfessorPage');
+    this.navCtrl.setRoot('ProfessorPage');
   }
 }

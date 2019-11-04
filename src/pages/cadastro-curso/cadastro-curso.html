@@ -11,23 +11,26 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-item-group>
-    <ion-item-divider color="light">
-      INSTITUIÇÃO  
-    </ion-item-divider>
-    <ion-item>{{instituicao.nome}}</ion-item>
-    <ion-item>{{instituicao.local}}</ion-item> 
-  </ion-item-group>
+  <form (ngSubmit)="cadastroCurso()" #formulario="ngForm">
+    <ion-item-group>
+      <ion-item-divider color="light">
+        INSTITUIÇÃO SELECIONADA 
+      </ion-item-divider>
+      <ion-item >{{instituicao.nomeInstituicao}}</ion-item>
+      <ion-item >{{instituicao.unidadeInstituicao}}</ion-item> 
+    </ion-item-group>
 
-  <ion-item-group>
-    <ion-item-divider>
-      CADASTRAR CURSO
-    </ion-item-divider>
-      <ion-item>
-        <ion-label stacked>Nome Do Curso*</ion-label>
-        <ion-input name="nome" type="text"></ion-input>
-      </ion-item>
-  </ion-item-group>
-
-  <button ion-button block>Cadastrar</button>
+    
+    <ion-item-group>
+      <ion-item-divider color="light">
+        CADASTRAR CURSO
+      </ion-item-divider>
+      
+        <ion-item>
+          <ion-label stacked >Nome Do Curso*</ion-label>
+          <ion-input name="nome" type="text" [(ngModel)] = "nomeDoCurso"></ion-input>
+        </ion-item>
+      </ion-item-group>
+  </form>
+  <button ion-button block (click)="formulario.ngSubmit.emit()">Cadastrar</button>
 </ion-content>

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { InstituicaoPage } from '../instuicao/instituicao';
+import { CadastroInstituicaoPage } from '../cadastro-instituicao/cadastro-instituicao';
 
 /**
  * Generated class for the CadastroPage page.
@@ -18,10 +20,10 @@ export class CadastroPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
   public irParaCadastroInstituicao(){
-    this.navCtrl.push('CadastroInstituicaoPage');
+    this.navCtrl.push(CadastroInstituicaoPage.name);
   }
   public irParaInstituicao(){
-    this.navCtrl.push('InstituicaoPage');
+    this.navCtrl.push(InstituicaoPage.name);
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad CadastroPage');

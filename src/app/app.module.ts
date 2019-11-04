@@ -9,6 +9,19 @@ import { MyApp } from './app.component'
 import { CategoriaService } from '../services/domain/categoria.service';
 import { InstituicaoServiceProvider } from '../providers/instituicao-service/instituicao-service';
 
+import {IonicStorageModule} from '@ionic/storage';
+
+import 'rxjs/add/operator/finally';
+import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/mergeMap';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/fromPromise';
+import 'rxjs/add/observable/of';
+import { InstituicaoDaoProvider } from '../providers/instituicao-dao/instituicao-dao';
+import { UsuariosServiceProvider } from '../providers/usuarios-service/usuarios-service';
+
+
+
 @NgModule({
   declarations: [
     MyApp
@@ -16,7 +29,12 @@ import { InstituicaoServiceProvider } from '../providers/instituicao-service/ins
   imports: [
     BrowserModule,
     HttpClientModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot({
+      name: 'appChamada',
+      storeName: 'instituicoes',
+      driverOrder: ['indexeddb']
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -27,7 +45,10 @@ import { InstituicaoServiceProvider } from '../providers/instituicao-service/ins
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     CategoriaService,
-    InstituicaoServiceProvider
+    InstituicaoServiceProvider,
+    InstituicaoServiceProvider,
+    InstituicaoDaoProvider,
+    UsuariosServiceProvider
   ]
 })
 export class AppModule {}
