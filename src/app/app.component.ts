@@ -12,7 +12,7 @@ import { PerfilPage } from '../pages/perfil/perfil';
 })
 export class MyApp {
   @ViewChild(Nav) public nav: Nav;
-  rootPage:any = LoginPage;
+  rootPage:any = LoginPage.name;
 
   public paginas = [
     {titulo: 'Cadastros', componente: CadastroPage.name, icone: 'calendar'},
