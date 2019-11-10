@@ -23,6 +23,8 @@ import 'rxjs/add/observable/fromPromise';
 import 'rxjs/add/observable/of';
 import { InstituicaoDaoProvider } from '../providers/instituicao-dao/instituicao-dao';
 import { UsuariosServiceProvider } from '../providers/usuarios-service/usuarios-service';
+import { ErrorIntercptorProvider } from '../interceptors/error-interceptor';
+
 
 
 @NgModule({
@@ -42,7 +44,7 @@ import { UsuariosServiceProvider } from '../providers/usuarios-service/usuarios-
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp, 
+    MyApp
   ],
   providers: [
     StatusBar,
@@ -54,6 +56,7 @@ import { UsuariosServiceProvider } from '../providers/usuarios-service/usuarios-
     InstituicaoDaoProvider,
     UsuariosServiceProvider,
     AngularFireAuth,
+    ErrorIntercptorProvider
   ]
 })
 export class AppModule {}

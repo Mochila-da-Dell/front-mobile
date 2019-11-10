@@ -17,7 +17,9 @@ import { MenuController } from 'ionic-angular/components/app/menu-controller';
 export class ProfessorPage {
 
   constructor(
-    public navCtrl: NavController, public navParams: NavParams, private menu: MenuController) {
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    private menu: MenuController) {
   }
   public irParaInstituicao(){
     this.navCtrl.push('InstituicaoPage');

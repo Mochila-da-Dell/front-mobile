@@ -39,6 +39,7 @@ export class ModalPage {
   closeModal(){
     this.view.dismiss();
   }
+  
   efetuaLogin(){
     console.log(this.email); 
     console.log(this.senha);
