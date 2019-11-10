@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, ViewController, AlertController } from 'ionic-angular';
 import { UsuariosServiceProvider } from '../../providers/usuarios-service/usuarios-service';
 import { Usuario } from '../../models/usuario';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { auth } from 'firebase';
+
 
 /**
  * Generated class for the ModalPage page.
@@ -23,7 +26,15 @@ export class ModalPage {
   constructor(public navCtrl: NavController, 
     private view: ViewController,
     private _alertCtrl: AlertController,
-    private _usuarioService: UsuariosServiceProvider) {
+    private _usuarioService: UsuariosServiceProvider,
+    public afAuth: AngularFireAuth) {
+  }
+  loginWithFacebook(){
+    this.afAuth.auth.signInWithPopup( new auth.FacebookAuthProvider())
+    .then( res =>{
+      console.log(res);
+      this.navCtrl.setRoot('ProfessorPage');
+    })
   }
   closeModal(){
     this.view.dismiss();

@@ -8,6 +8,10 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component'
 import { CategoriaService } from '../services/domain/categoria.service';
 import { InstituicaoServiceProvider } from '../providers/instituicao-service/instituicao-service';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../environments/environment';
+import { AngularFireAuth } from '@angular/fire/auth';
+
 
 import {IonicStorageModule} from '@ionic/storage';
 
@@ -21,13 +25,13 @@ import { InstituicaoDaoProvider } from '../providers/instituicao-dao/instituicao
 import { UsuariosServiceProvider } from '../providers/usuarios-service/usuarios-service';
 
 
-
 @NgModule({
   declarations: [
     MyApp
   ],
   imports: [
     BrowserModule,
+    AngularFireModule.initializeApp(environment.firebase),
     HttpClientModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot({
@@ -38,7 +42,7 @@ import { UsuariosServiceProvider } from '../providers/usuarios-service/usuarios-
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp
+    MyApp, 
   ],
   providers: [
     StatusBar,
@@ -48,7 +52,8 @@ import { UsuariosServiceProvider } from '../providers/usuarios-service/usuarios-
     InstituicaoServiceProvider,
     InstituicaoServiceProvider,
     InstituicaoDaoProvider,
-    UsuariosServiceProvider
+    UsuariosServiceProvider,
+    AngularFireAuth,
   ]
 })
 export class AppModule {}
