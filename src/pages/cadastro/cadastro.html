@@ -1,12 +1,12 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>cadastro</ion-title>
-  </ion-navbar>
+<ion-header no-border>
+    <ion-navbar color="primary">
+      <ion-title>{{ cadastro }}</ion-title>
+    </ion-navbar>
 </ion-header>
 
 <ion-content padding>
     <ion-card>
-      <ion-list>
+      <ion-list class="lista-borda">
         <button ion-item (click)="irParaCadastroInstituicao()">
           <ion-thumbnail item-start>
             <img src="assets/imgs/universidade.png">
@@ -16,8 +16,8 @@
       </ion-list>
     </ion-card>
     <ion-card>
-        <ion-list>
-          <button ion-item (click)="irParaInstituicao()">
+        <ion-list class="lista-borda">
+          <button ion-item (click)="irParaCadastroCurso()">
             <ion-thumbnail item-start>
               <img src="assets/imgs/curso.png">
             </ion-thumbnail>
@@ -26,8 +26,8 @@
         </ion-list>
       </ion-card>
       <ion-card>
-          <ion-list>
-            <button ion-item (click)="irParaInstituicao()">
+          <ion-list class="lista-borda">
+            <button ion-item (click)="irParaCadastroTurma()">
               <ion-thumbnail item-start>
                 <img src="assets/imgs/turma.png">
               </ion-thumbnail>
@@ -35,4 +35,37 @@
             </button>
           </ion-list>
         </ion-card>
+
+        <ion-card>
+          <ion-list class="lista-borda">
+            <button ion-item (click)="irParaCadastroMateria()">
+              <ion-thumbnail item-start>
+                <img src="assets/imgs/turma.png">
+              </ion-thumbnail>
+              <h2>Materia</h2>
+            </button>
+          </ion-list>
+        </ion-card>
+        
+        <!-- footer -->
+        <ion-footer class="footer">
+            <ion-toolbar color="primary">
+              <div class="div-toobar">
+              <ion-buttons >
+                <button ion-button class="button-footer" (click)="irParaProfessor()">
+                  <ion-icon name="home"></ion-icon>
+                </button>
+                <button ion-button class="button-footer" (click)="irParaCadastro()">
+                    <ion-icon name="home"></ion-icon>
+                </button>
+                <button ion-button class="button-footer" (click)="irParaChamada()" >
+                  <ion-icon name="contacts"></ion-icon>
+                </button>
+                <button ion-button class="button-footer" (click)="irParaLista()">
+                  <ion-icon name="star-outline"></ion-icon>
+                </button>
+              </ion-buttons>
+            </div>
+            </ion-toolbar>
+          </ion-footer> 
 </ion-content>

@@ -11,6 +11,7 @@ import { InstituicaoServiceProvider } from '../providers/instituicao-service/ins
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { SuperTabsModule } from 'ionic2-super-tabs';
 
 
 import {IonicStorageModule} from '@ionic/storage';
@@ -21,30 +22,41 @@ import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/fromPromise';
 import 'rxjs/add/observable/of';
-import { InstituicaoDaoProvider } from '../providers/instituicao-dao/instituicao-dao';
 import { UsuariosServiceProvider } from '../providers/usuarios-service/usuarios-service';
 import { ErrorIntercptorProvider } from '../interceptors/error-interceptor';
+import { StorageServiceProvider } from '../providers/storage-service/storage-service';
+import { InstituicaoDaoProvider } from '../providers/instituicao-dao/instituicao-dao';
+import { CursoServiceProvider } from '../providers/curso-service/curso-service';
+import { CursoDaoProvider } from '../providers/curso-dao/curso-dao';
+import { TurmaDaoProvider } from '../providers/turma-dao/turma-dao';
+import { TurmaServiceProvider } from '../providers/turma-service/turma-service';
+import { MateriaServiceProvider } from '../providers/materia-service/materia-service';
+import { MateriaDaoProvider } from '../providers/materia-dao/materia-dao';
+import { ProfessordaoProvider } from '../providers/professordao/professordao';
 
 
 
 @NgModule({
   declarations: [
-    MyApp
+    MyApp,
+    
+    
   ],
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
     HttpClientModule,
     IonicModule.forRoot(MyApp),
+    SuperTabsModule.forRoot(),
     IonicStorageModule.forRoot({
       name: 'appChamada',
-      storeName: 'instituicoes',
+      storeName: 'mydb',
       driverOrder: ['indexeddb']
     })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp
+    MyApp,
   ],
   providers: [
     StatusBar,
@@ -56,7 +68,15 @@ import { ErrorIntercptorProvider } from '../interceptors/error-interceptor';
     InstituicaoDaoProvider,
     UsuariosServiceProvider,
     AngularFireAuth,
-    ErrorIntercptorProvider
+    ErrorIntercptorProvider,
+    StorageServiceProvider,
+    CursoServiceProvider,
+    CursoDaoProvider,
+    TurmaDaoProvider,
+    TurmaServiceProvider,
+    MateriaServiceProvider,
+    MateriaDaoProvider,
+    ProfessordaoProvider
   ]
 })
 export class AppModule {}

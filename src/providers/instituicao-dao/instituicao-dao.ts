@@ -12,7 +12,7 @@ export class InstituicaoDaoProvider {
   }
 
   private _geraChave(cadastro: Instituicao){
-     return cadastro.nomeInstituicao + cadastro.unidadeInstituicao;
+     return cadastro.nome_fantasia + cadastro.campus;
   }
   salva(cadastro: Instituicao) { //vamos usar o storagem do ionic para salvar na nossa base
     let chave = this._geraChave(cadastro);

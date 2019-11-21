@@ -1,13 +1,7 @@
-<!--
-  Generated template for the CadastroInstituicaoPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<ion-header>
-  <ion-navbar>
-    <ion-title>cadastro.instituicao</ion-title>
-  </ion-navbar>
+<ion-header no-border>
+    <ion-navbar color="primary">
+      <ion-title>{{ cadastro }}</ion-title>
+    </ion-navbar>
 </ion-header>
 <!-- tela para o cadastro de instituição, curso, turma -->
 <ion-content padding>
@@ -15,13 +9,28 @@
   <form (ngSubmit)="cadastroInst()" #formulario="ngForm">
     
     <ion-item>
-      <ion-label stacked>Nome Da instituição*</ion-label>
-      <ion-input [(ngModel)]="nome" name="Instituição" type="text"></ion-input>
+      <ion-label class="text-left" stacked>Nome Da instituição*</ion-label>
+      <ion-input [(ngModel)]="nomeFantasia" name="Instituição" type="text"></ion-input>
     </ion-item>
     
     <ion-item>
-      <ion-label stacked>Unidade*</ion-label>
-      <ion-input [(ngModel)]="unidade" name="Unidade" type="text"></ion-input>
+      <ion-label class="text-left" stacked>Sigla*</ion-label>
+      <ion-input [(ngModel)]="sigla" name="Unidade" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label class="text-left" stacked>Campus*</ion-label>
+      <ion-input [(ngModel)]="campus" name="Unidade" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label class="text-left" stacked>Endereço*</ion-label>
+      <ion-input [(ngModel)]="endereco" name="Unidade" type="text"></ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label class="text-left" stacked>CNPJ*</ion-label>
+      <ion-input [(ngModel)]="cnpj" name="Unidade" type="text"></ion-input>
     </ion-item>
 
   </form>

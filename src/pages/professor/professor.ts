@@ -1,6 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { MenuController } from 'ionic-angular/components/app/menu-controller';
+import { SuperTabsController } from 'ionic2-super-tabs';
+import { CadastroPage } from '../cadastro/cadastro';
+import { ChamadaPage } from '../chamada/chamada';
+
 
 /**
  * Generated class for the ProftelainicialPage page.
@@ -15,12 +18,30 @@ import { MenuController } from 'ionic-angular/components/app/menu-controller';
   templateUrl: 'professor.html',
 })
 export class ProfessorPage {
+  
+  pages = [
+    { pageName: CadastroPage.name, title: 'Cadastro', icon: 'flame', id: 'cadastroTab'},
+    { pageName: ChamadaPage.name, title: 'EstouAqui', icon: 'help-circle', id: 'chamadaTab'},
+    { pageName: CadastroPage.name, title: 'Listagem', icon: 'body', id: 'listaTab'}
+  ];
 
+  selectedTab = 1;
+
+  @ViewChild(SuperTabsController) superTabs: SuperTabsController;
+ 
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams, 
-    private menu: MenuController) {
+    ) {
   }
+  
+  onTabSelect(ev: any) {
+    console.log(ev.index)
+      this.selectedTab = ev.index;
+  
+  }
+ 
+  
   public irParaInstituicao(){
     this.navCtrl.push('InstituicaoPage');
   }
@@ -33,17 +54,11 @@ export class ProfessorPage {
   public irParaCadastro(){
     this.navCtrl.push('CadastroPage');
   }
+  public irParaChamada(){
+    this.navCtrl.setRoot('ChamadaPage')
+  }
   // implementando menu
-  openFirst(){
-    this.menu.enable(true, 'first');
-  }
-  openEnd(){
-    this.menu.open('end');
-  }
-  openCustom(){
-    this.menu.enable(true, 'custom');
-    this.menu.open('custom')
-  }
+  
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfessorPage');
   }

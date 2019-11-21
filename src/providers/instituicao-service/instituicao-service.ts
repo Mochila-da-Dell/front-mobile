@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Storage } from '@ionic/storage';
-import {DatePipe} from '@angular/common';
-import { Instituicao } from '../../models/Instituicao';
+// import { Storage } from '@ionic/storage';
+// import {DatePipe} from '@angular/common';
+import { Instituicao } from "../../models/Instituicao";
 import { Observable } from 'rxjs';
 
 /*
@@ -14,7 +14,7 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class InstituicaoServiceProvider {
 
-  private _url= 'http://locahost:8080/cadastroInstuicao';
+  private _url= 'http://localhost:8080';
   constructor(private _http: HttpClient) {
   
   }
@@ -35,7 +35,7 @@ export class InstituicaoServiceProvider {
   }
   cadastroInstituicao(cadastro: Instituicao){
    return this._http
-              .post(this._url+'cadastro/instituicao', cadastro)
+              .post(this._url+'/universidade/cadastrar', cadastro)
               .do(() => cadastro.enviado = true)
               .catch((err) => Observable.of(new Error('Falha no cadastro! Tente novamente mais tarde')));
   }

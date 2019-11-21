@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, ViewController, AlertController } from 'ionic-angular';
 import { UsuariosServiceProvider } from '../../providers/usuarios-service/usuarios-service';
-import { Usuario } from '../../models/usuario';
+import { UsuarioDto } from '../../models/usuario.dto';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { auth } from 'firebase';
 
@@ -19,9 +19,9 @@ import { auth } from 'firebase';
   templateUrl: 'modal.html',
 })
 export class ModalPage {
-
-  email: string;
-  senha: string;
+ 
+    email: string;
+    senha: string;
 
   constructor(public navCtrl: NavController, 
     private view: ViewController,
@@ -47,7 +47,7 @@ export class ModalPage {
     this._usuarioService
     .efetuaLogin(this.email, this.senha)
     .subscribe(
-      (usuario: Usuario) => {
+      (usuario: UsuarioDto) => {
         console.log(usuario)
         this.navCtrl.setRoot('ProfessorPage');
       },

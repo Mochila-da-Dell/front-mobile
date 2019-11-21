@@ -22,17 +22,13 @@ export class LoginPage {
   }
 
   openModal(){
-    const myData = {
-      
-    }
+    
     const myModal = this.modal.create('ModalPage',)
 
     myModal.present();
   }
   openModalAluno(){
-    const myData = {
-      
-    }
+    
     const myModal = this.modal.create('ModalAlunoPage',)
 
     myModal.present();

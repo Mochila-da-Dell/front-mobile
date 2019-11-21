@@ -1,19 +1,50 @@
-   <ion-header>
-    <ion-navbar> 
-      <button ion-button menuToggle>
-        <ion-icon name="menu"></ion-icon>
-      </button>
-      <ion-title>
-        Nome do professor
-      </ion-title>
+  <ion-header no-border>
+    <ion-navbar color="primary">
+      <ion-title>{{ pages[selectedTab].title }}</ion-title>
     </ion-navbar>
-   </ion-header>
+  </ion-header>
    
-   <ion-content padding class="professor">  
-    <div>
-      <div id="instituicao" class="cadastro"><i class="fas fa-school"(click)=" irParaCadastro()"><p>Cadastro</p></i></div>
-      <div id="curso"class="cadastro"><i class="fas fa-graduation-cap" (click)=" irParaCurso()"><p>Fazer chamada</p></i></div>
-      <div id="turma" class="cadastro"><i class="fas fa-users"><p>Cadastrar Turma</p></i></div>
-      <div id="calendario" class="cadastro"><i class="far fa-calendar-alt" (click)=" irParaCalendario()"><p>Visualizar Calendario</p></i></div>
-    </div>
+  <ion-content padding>
+
+        
+              <ion-item id="cabecalho-menu" class="cabecalho-menu">
+                  <div>
+                      <ion-avatar item-start>
+                          <img src="../assets/imgs/avatar-profile.jpg">
+                      </ion-avatar>
+                  </div>
+                  <h2>Nome</h2>
+                  <p>email</p>
+              </ion-item>
+              <ion-list>
+                  <button ion-item menuClose *ngFor="let pagina of paginas"
+                      (click)="irParaPagina(pagina.componente)">
+  
+                      <ion-icon [name]="pagina.icon" item-left></ion-icon>
+                      {{pagina.titulo}}
+                  </button>
+              </ion-list>
+    
+    <ion-footer class="footer">
+      <ion-toolbar color="primary">
+        <div class="div-toobar">
+        <ion-buttons >
+          <button ion-button class="button-footer" (click)="irParaCadastro()">
+            <ion-icon name="home"></ion-icon>
+          </button>
+          <button ion-button class="button-footer" (click)="irParaCadastro()">
+              <ion-icon name="home"></ion-icon>
+          </button>
+          <button ion-button class="button-footer" (click)="irParaChamada()">
+            <ion-icon name="contacts"></ion-icon>
+          </button>
+          <button ion-button class="button-footer">
+            <ion-icon name="star-outline"></ion-icon>
+          </button>
+        </ion-buttons>
+      </div>
+      </ion-toolbar>
+    </ion-footer> 
   </ion-content>
+  
+   

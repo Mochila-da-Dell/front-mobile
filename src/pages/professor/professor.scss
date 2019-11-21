@@ -1,4 +1,39 @@
 page-professor {
+  #cabecalho-menu .item-inner {
+    border: none;
+}
+.cabecalho-menu {
+    background-image: url('../assets/imgs/material-design-background.jpg');
+    height: 150px;
+    margin-bottom: 10px;
+
+    ion-avatar img {
+        width: 50px;
+        height: 50px;
+    }
+
+    h2 {
+        color: white;
+        font-weight: bold;
+    }
+
+    p {
+        color: #eee;
+    }
+}
+  .div-toobar{
+    margin-left: 20px;
+  }
+  .footer{
+    color: #488aff;
+    text-align: center;
+  }
+  .button-footer{
+    margin: 0px 20px;
+  }
+  .tab-buttons{
+    width: 195px !important;
+  }
   .professor{
     background-color:#f5f5f5;
   }

@@ -11,5 +11,31 @@
 </ion-header>
 
 <ion-content padding>
+  <form (ngSubmit)="cadastroTurma()" #formulario="ngForm">
+    
+    <ion-item>
+      <ion-label class="text-left" stacked>Nome Da turma*</ion-label>
+      <ion-input [(ngModel)]="nomeTurma" name="Turma" type="text"></ion-input>
+    </ion-item>
 
+    <ion-list>
+      <ion-item>
+        <ion-label class="text-left">Instituição</ion-label>
+        <ion-select [(ngModel)]="universidadeTurma" name="Universidade">
+          <ion-option *ngFor="let instituicao of instituicao"  name="instituicao" [value]="instituicao">{{instituicao.nome_fantasia}}</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item>
+        <ion-label class="text-left">Curso</ion-label>
+        <ion-select  [(ngModel)]="cursoTurma" name="Curso">
+          <ion-option *ngFor="let curso of curso" name="curso" [value]="curso">{{curso.nome}}</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+  </form>
+  <button ion-button block (click)="formulario.ngSubmit.emit()">Cadastrar</button>
+  
 </ion-content>

@@ -1,0 +1,59 @@
+<ion-header no-border>
+    <ion-navbar color="primary">
+      <ion-title>{{ chamada }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form (ngSubmit)="cadastroCurso()" #formulario="ngForm">
+    <ion-list>
+      <ion-item>
+        <ion-label class="text-left">Instituição</ion-label>
+        <ion-select>
+          <ion-option value="nes">São Judas</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+    <ion-list>
+      <ion-item>
+        <ion-label class="text-left">Curso</ion-label>
+        <ion-select>
+          <ion-option value="nes">São Judas</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-list>
+        <ion-item>
+          <ion-label class="text-left">Turma</ion-label>
+          <ion-select>
+            <ion-option value="nes">São Judas</ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+    </ion-list>
+  </form>
+  <button ion-button block (click)="formulario.ngSubmit.emit()">Gerar Token</button>
+  <button ion-button block (click)="formulario.ngSubmit.emit()">Desativar Token</button>
+  
+  <!-- form -->
+
+  <ion-footer class="footer">
+      <ion-toolbar color="primary">
+        <div class="div-toobar">
+        <ion-buttons >
+          <button ion-button class="button-footer" (click)="irParaProfessor()">
+            <ion-icon name="home"></ion-icon>
+          </button>
+          <button ion-button class="button-footer" (click)="irParaCadastro()">
+              <ion-icon name="home"></ion-icon>
+          </button>
+          <button ion-button class="button-footer" (click)="irParaChamada()">
+            <ion-icon name="contacts"></ion-icon>
+          </button>
+          <button ion-button class="button-footer" (click)="irParaLista()">
+            <ion-icon name="star-outline"></ion-icon>
+          </button>
+        </ion-buttons>
+      </div>
+      </ion-toolbar>
+    </ion-footer> 
+</ion-content>

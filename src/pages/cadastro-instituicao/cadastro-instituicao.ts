@@ -3,9 +3,10 @@ import { IonicPage, NavController, NavParams, AlertController, Alert } from 'ion
 import { InstituicaoServiceProvider } from '../../providers/instituicao-service/instituicao-service';
 import { CadastroPage } from '../cadastro/cadastro';
 import { Instituicao } from "../../models/Instituicao";
-
-
 import { InstituicaoDaoProvider } from '../../providers/instituicao-dao/instituicao-dao';
+
+
+// import { InstituicaoDaoProvider } from '../../providers/instituicao-dao/instituicao-dao';
 
 /**
  * Generated class for the CadastroInstituicaoPage page.
@@ -21,8 +22,11 @@ import { InstituicaoDaoProvider } from '../../providers/instituicao-dao/institui
 })
 export class CadastroInstituicaoPage {
 
-  public nome: string = '';
-  public unidade: string = '';
+  public nomeFantasia: string = '';
+  public sigla: string = '';
+  public campus: string = '';
+  public endereco: string = '';
+  public cnpj: string = '';
 
   private _alerta: Alert;
   
@@ -31,7 +35,7 @@ export class CadastroInstituicaoPage {
     private _alertCtrl: AlertController,
     private _instituicaoService: InstituicaoServiceProvider,
     
-    private _instituicaoDao: InstituicaoDaoProvider,
+     private _instituicaoDao: InstituicaoDaoProvider,
     ) {
 
      
@@ -44,7 +48,7 @@ export class CadastroInstituicaoPage {
   
   cadastroInst() {
     
-    if (!this.nome || !this.unidade) {
+    if (!this.nomeFantasia || !this.campus) {
       this._alertCtrl.create({
         title: 'Preenchimento obrigatório!',
         subTitle: 'Preencha todos os campos!',
@@ -55,8 +59,11 @@ export class CadastroInstituicaoPage {
       return;
     }
     let cadastro: Instituicao = {
-      nomeInstituicao: this.nome,
-      unidadeInstituicao: this.unidade,
+      nome_fantasia: this.nomeFantasia,
+      sigla: this.sigla,
+      campus: this.campus,
+      endereco: this.endereco,
+      cnpj: this.cnpj,
       confirmado: false,
       enviado: false,
     };

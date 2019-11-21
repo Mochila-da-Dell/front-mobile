@@ -17,13 +17,13 @@
   <ion-list>
     <ion-item>    
       <ion-label stacked>E-mail</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input [(ngModel)]="aluno.email" name="email" type="text"></ion-input>
     </ion-item>    
     <ion-item>
       <ion-label stacked>Senha</ion-label>
-      <ion-input class="senha" type="password" placeholder="Senha"></ion-input>
+      <ion-input [(ngModel)]="aluno.senha" class="senha" name="senha" type="password" placeholder="Senha"></ion-input>
     </ion-item>
-        <button class="botao" ion-button type="submit" (click)="irParaPaginaInicial()"placeholder="submit">Entrar</button>
+        <button class="botao" ion-button type="submit" (click)="loginAluno()"placeholder="submit">Entrar</button>
         <button class="botao" ion-button (click)="irParaCadastroUsuario()">Cadastrar-se</button>
   </ion-list>
 </ion-content>

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { ProfessorPage } from './professor';
+import { SuperTabsModule } from 'ionic2-super-tabs';
 
 @NgModule({
   declarations: [
@@ -8,9 +9,8 @@ import { ProfessorPage } from './professor';
   ],
   imports: [
     IonicPageModule.forChild(ProfessorPage),
+    SuperTabsModule
   ],
-  exports: [
-    ProfessorPage
-  ]
+
 })
 export class ProfessorPageModule {}
