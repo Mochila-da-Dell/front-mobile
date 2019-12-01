@@ -10,11 +10,11 @@
               <ion-item id="cabecalho-menu" class="cabecalho-menu">
                   <div>
                       <ion-avatar item-start>
-                          <img src="../assets/imgs/avatar-profile.jpg">
+                          <img src="../assets/imgs/user.jpg">
                       </ion-avatar>
                   </div>
-                  <h2>Nome</h2>
-                  <p>email</p>
+                  <h2>Gustavo Ferreira Delfino</h2>
+                  <p>gustavo.delfino28@gmail.com</p>
               </ion-item>
               <ion-list>
                   <button ion-item menuClose *ngFor="let pagina of paginas"
@@ -33,12 +33,12 @@
             <ion-icon name="home"></ion-icon>
           </button>
           <button ion-button class="button-footer" (click)="irParaCadastro()">
-              <ion-icon name="home"></ion-icon>
+              <ion-icon name="copy"></ion-icon>
           </button>
           <button ion-button class="button-footer" (click)="irParaChamada()">
             <ion-icon name="contacts"></ion-icon>
           </button>
-          <button ion-button class="button-footer">
+          <button ion-button class="button-footer" (click)="irParaListaAlunos()">
             <ion-icon name="star-outline"></ion-icon>
           </button>
         </ion-buttons>

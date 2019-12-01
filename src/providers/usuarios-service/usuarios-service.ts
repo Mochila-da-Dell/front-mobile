@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { UsuarioDto } from '../../models/usuario.dto';
 import { API_CONFIG } from '../../config/api.config';
 import { Professor } from "../../models/professor.dto";
+import { Aluno } from "../../models/aluno.dto";
 import { Observable } from 'rxjs';
 
 @Injectable()
@@ -26,6 +27,13 @@ export class UsuariosServiceProvider {
   cadastroProfessor(cadastro: Professor){
     return this._http
                .post(this._url+'/professor/cadastrar', cadastro)
+               .do(() => cadastro.enviado = true)
+               .catch((err) => Observable.of(new Error('Falha no cadastro! Tente novamente mais tarde')));
+   }
+   
+   cadastroAluno(cadastro: Aluno){
+    return this._http
+               .post(this._url+'/aluno/cadastrar', cadastro)
                .do(() => cadastro.enviado = true)
                .catch((err) => Observable.of(new Error('Falha no cadastro! Tente novamente mais tarde')));
    }

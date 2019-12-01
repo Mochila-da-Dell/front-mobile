@@ -1,0 +1,37 @@
+<!--
+  Generated template for the CadastroAlunoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>cadastro-aluno</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form (ngSubmit)="cadastrarAluno()">
+    <ion-item>
+      <ion-label stacked>Nome</ion-label>
+      <ion-input [(ngModel)]="alunoNome" name="nome" type="text"></ion-input> 
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>RAP</ion-label>
+      <ion-input [(ngModel)]="alunoRa" name="ra" type="text"></ion-input> 
+    </ion-item> 
+    
+    <ion-item>
+      <ion-label stacked>E-mail</ion-label>
+      <ion-input [(ngModel)]="alunoEmail" name="email" type="text"></ion-input> 
+    </ion-item> 
+
+    <ion-item>  
+      <ion-label stacked>Senha</ion-label>
+      <ion-input [(ngModel)]="alunoSenha" name="senha" type="password"></ion-input>
+    </ion-item>
+    
+    <button ion-button block type="submit" class="login">Cadastrar</button> 
+  </form>
+</ion-content>

@@ -55,7 +55,10 @@ export class ProfessorPage {
     this.navCtrl.push('CadastroPage');
   }
   public irParaChamada(){
-    this.navCtrl.setRoot('ChamadaPage')
+    this.navCtrl.push('ChamadaPage')
+  }
+  public irParaListaAlunos(){
+    this.navCtrl.push('ListaChamadaPage')
   }
   // implementando menu
   

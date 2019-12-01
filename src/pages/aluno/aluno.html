@@ -1,6 +1,41 @@
-<ion-header>
-        <title>Professor</title>
+<ion-header no-border>
+  <ion-navbar color="primary">
+    <ion-title>Aluno</ion-title>
+  </ion-navbar>
 </ion-header>
 <ion-content padding class="aluno">
-  <h1>Venha</h1>
+  
+
+  <form (ngSubmit)="inserirTokenChamada()" #formulario="ngForm">
+    
+    <ion-item>
+      <ion-label class="text-left" stacked>Data da chamada</ion-label>
+      <ion-input [(ngModel)]="data" name="data" type="date"></ion-input>
+    </ion-item>
+
+    <ion-list>
+      <ion-item>
+        <ion-label class="text-left">Materia</ion-label>
+        <ion-select [(ngModel)]="nomeMateria" name="materia">
+          <ion-option *ngFor="let materia of materia"  name="turma" [value]="materia">{{materia.nome}}</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+
+    <ion-item>
+      <ion-label class="text-left" stacked>Inserir Token Materia</ion-label>
+      <ion-input [(ngModel)]="token" name="token" type="text"></ion-input>
+    </ion-item>
+  </form>
+  <button ion-button block (click)="formulario.ngSubmit.emit()">Inserir Token Chamada</button>
+
+  <ion-footer class="footer">
+    <ion-toolbar color="primary">
+      <div class="div-toobar">
+      <ion-buttons >
+        
+      </ion-buttons>
+    </div>
+    </ion-toolbar>
+  </ion-footer>
 </ion-content>

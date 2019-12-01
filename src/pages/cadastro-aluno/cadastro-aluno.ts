@@ -1,13 +1,11 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, Alert, AlertController } from 'ionic-angular';
 import { UsuariosServiceProvider } from '../../providers/usuarios-service/usuarios-service';
-import { Professor } from '../../models/professor.dto';
-import { ProfessordaoProvider } from '../../providers/professordao/professordao';
-import { ModalPage } from '../modal/modal';
-
-
+import { AlunoDaoProvider } from '../../providers/aluno-dao/aluno-dao';
+import { Aluno } from '../../models/aluno.dto';
+import { ModalAlunoPage } from '../modal-aluno/modal-aluno';
 /**
- * Generated class for the CadastroUsuarioPage page.
+ * Generated class for the CadastroAlunoPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -15,32 +13,33 @@ import { ModalPage } from '../modal/modal';
 
 @IonicPage()
 @Component({
-  selector: 'page-cadastro-usuario',
-  templateUrl: 'cadastro-usuario.html',
+  selector: 'page-cadastro-aluno',
+  templateUrl: 'cadastro-aluno.html',
 })
-export class CadastroUsuarioPage {
+export class CadastroAlunoPage {
 
-  public professorNome: string = '';
-  public professorRap: string = '';
-  public professorEmail: string = '';
-  public professorSenha: string = '';
-
+  public alunoNome: string = '';
+  public alunoRa: string = '';
+  public alunoEmail: string = '';
+  public alunoSenha: string = '';
+  
   private _alerta: Alert;
 
-  constructor(public navCtrl: NavController, 
+  constructor(
+    public navCtrl: NavController, 
     public navParams: NavParams,
     private _alertCtrl: AlertController,
     private _usuarioService: UsuariosServiceProvider,
-    private _professorDao: ProfessordaoProvider) {
+    private _alunoDao: AlunoDaoProvider) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CadastroUsuarioPage');
+    console.log('ionViewDidLoad CadastroAlunoPage');
   }
 
-  cadastrarProfessor() {
+  cadastrarAluno() {
     
-    if (!this.professorEmail || !this.professorSenha) {
+    if (!this.alunoEmail || !this.alunoSenha) {
       this._alertCtrl.create({
         title: 'Preenchimento obrigatório!',
         subTitle: 'Preencha todos os campos!',
@@ -50,11 +49,11 @@ export class CadastroUsuarioPage {
       }).present()
       return;
     }
-    let cadastro: Professor = {
-      nome: this.professorNome,
-      rap: this.professorRap,
-      email: this.professorEmail,
-      senha: this.professorSenha,
+    let cadastro: Aluno = {
+      nome: this.alunoNome,
+      ra: this.alunoRa,
+      email: this.alunoEmail,
+      senha: this.alunoSenha,
       confirmado: false,
       enviado: false,
     };
@@ -64,24 +63,24 @@ export class CadastroUsuarioPage {
       buttons: [
         {text: 'OK', 
         handler: () => {
-          this.navCtrl.setRoot(ModalPage);
+          this.navCtrl.setRoot(ModalAlunoPage);
         }}
       ]
     });
 
     let mensagem = '';
 
-    this._professorDao.ehDuplicado(cadastro)
+    this._alunoDao.ehDuplicado(cadastro)
         .mergeMap(ehDuplicado => {
           if(ehDuplicado){
             throw new Error('Cadastro já realizado!');
           }
 
-          return this._usuarioService.cadastroProfessor(cadastro);
+          return this._usuarioService.cadastroAluno(cadastro);
         })
       .mergeMap((valor) => {
       
-      let observable = this._professorDao.salva(cadastro);
+      let observable = this._alunoDao.salva(cadastro);
       if(valor instanceof Error) {
         throw valor;
       }
@@ -98,5 +97,4 @@ export class CadastroUsuarioPage {
         (err: Error) => mensagem = err.message
       );
   }
-
 }

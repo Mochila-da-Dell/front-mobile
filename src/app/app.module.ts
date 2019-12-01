@@ -33,6 +33,9 @@ import { TurmaServiceProvider } from '../providers/turma-service/turma-service';
 import { MateriaServiceProvider } from '../providers/materia-service/materia-service';
 import { MateriaDaoProvider } from '../providers/materia-dao/materia-dao';
 import { ProfessordaoProvider } from '../providers/professordao/professordao';
+import { AlunoDaoProvider } from '../providers/aluno-dao/aluno-dao';
+import { TokenChamadaServiceProvider } from '../providers/token-chamada-service/token-chamada-service';
+import { TokenChamadaDaoProvider } from '../providers/token-chamada-dao/token-chamada-dao';
 
 
 
@@ -76,7 +79,10 @@ import { ProfessordaoProvider } from '../providers/professordao/professordao';
     TurmaServiceProvider,
     MateriaServiceProvider,
     MateriaDaoProvider,
-    ProfessordaoProvider
+    ProfessordaoProvider,
+    AlunoDaoProvider,
+    TokenChamadaServiceProvider,
+    TokenChamadaDaoProvider
   ]
 })
 export class AppModule {}
