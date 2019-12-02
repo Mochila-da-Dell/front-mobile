@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController, AlertController  } from 'ionic-angular';
 import { AlunoDTO } from '../../models/credencias_aluno.dto';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { auth } from 'firebase';
+import { UsuariosServiceProvider } from '../../providers/usuarios-service/usuarios-service';
 
 /**
  * Generated class for the ModalAlunoPage page.
@@ -17,15 +18,17 @@ import { auth } from 'firebase';
   templateUrl: 'modal-aluno.html',
 })
 export class ModalAlunoPage {
-  aluno : AlunoDTO = {
-    email: "",
-    senha: "",
-  };
+  
+  email: string;
+  senha: string;
+  
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams, 
     private view: ViewController,
-    public afAuth: AngularFireAuth) {
+    private _usuarioService: UsuariosServiceProvider,
+    public afAuth: AngularFireAuth,
+    private _alertCtrl: AlertController,) {
   }
   loginWithFacebook(){
     this.afAuth.auth.signInWithPopup( new auth.FacebookAuthProvider())
@@ -43,6 +46,30 @@ export class ModalAlunoPage {
   }
   public loginAluno(){
     this.navCtrl.setRoot('AlunoPage')
+  }
+  efetuaLoginAluno(){
+    console.log(this.email); 
+    console.log(this.senha);
+
+    this._usuarioService
+    .efetuaLoginAluno(this.email, this.senha)
+    .subscribe(
+      (usuario: AlunoDTO) => {
+        console.log(usuario)
+        this.navCtrl.setRoot('AlunoPage');
+      },
+      () => {
+        this._alertCtrl.create({
+          title: 'Falha no login',
+          subTitle: 'Email ou senha incorretos! Verifique!',
+          buttons: [
+            {text: 'Ok'}
+          ]
+        }).present();
+      }
+    )
+    
+    
   }
   public irParaCadastroUsuario(){
     this.navCtrl.push('CadastroAlunoPage')

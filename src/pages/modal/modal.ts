@@ -45,7 +45,7 @@ export class ModalPage {
     console.log(this.senha);
 
     this._usuarioService
-    .efetuaLogin(this.email, this.senha)
+    .efetuaLoginProfessor(this.email, this.senha)
     .subscribe(
       (usuario: UsuarioDto) => {
         console.log(usuario)

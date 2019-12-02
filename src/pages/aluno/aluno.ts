@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, Alert, AlertController } from 'ionic-angular';
-import { TokenChamadaServiceProvider } from '../../providers/token-chamada-service/token-chamada-service';
+
 import { TokenChamadaDaoProvider } from '../../providers/token-chamada-dao/token-chamada-dao';
 import { tokenChamadaAluno } from '../../models/token-chamada';
 import { Materia } from '../../models/materia.dto';
 import { HttpClient } from '@angular/common/http';
+
+import { Observable } from 'rxjs';
+
 
 
 
@@ -25,16 +28,21 @@ export class AlunoPage {
   public materia: Materia[];
 
   public data: string = '';
-  public aluno: number = 1;
-  public nomeMateria: string = 'matematica';
+  public aluno: number = 2;
+  public nomeMateria: string = '';
   public Token: string = '';
+
+  private _url= 'http://localhost:8080';
+
+  
+
 
   private _alerta: Alert;
 
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
     private _alertCtrl: AlertController,
-    private _tokenChamadaService: TokenChamadaServiceProvider,
+    
     private _tokenChamadaDao: TokenChamadaDaoProvider,
     private _http: HttpClient) {
 
@@ -50,6 +58,20 @@ export class AlunoPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad AlunoPage');
   }
+  
+  
+  inserirToken(cadastro: tokenChamadaAluno){
+    console.log(cadastro);
+    console.log(this.Token);
+    console.log(this.nomeMateria);
+    return this._http
+               .post(this._url+'/chamada/presente/'+this.Token, cadastro)
+               .do(() => cadastro.enviado = true)
+               .catch((err) => Observable.of(new Error('Falha na conexão! Tente novamente mais tarde')));
+
+               
+   }
+  
   inserirTokenChamada() {
     
     if (!this.aluno || !this.materia) {
@@ -88,7 +110,7 @@ export class AlunoPage {
             throw new Error('Token já utilizado!');
           }
 
-          return this._tokenChamadaService.inserirToken(cadastro);
+          return this.inserirToken(cadastro);
         })
       .mergeMap((valor) => {
       
