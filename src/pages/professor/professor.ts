@@ -60,6 +60,7 @@ export class ProfessorPage {
   public irParaListaAlunos(){
     this.navCtrl.push('ListaChamadaPage')
   }
+  
   // implementando menu
   
   ionViewDidLoad() {

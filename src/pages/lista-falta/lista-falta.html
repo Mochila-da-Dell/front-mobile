@@ -1,28 +1,18 @@
-<!--
-  Generated template for the ListaChamadaPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header no-border>
   <ion-navbar color="primary">
-    <ion-title>Lista Alunos</ion-title>
+    <ion-title>Lista Faltantes</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-    <ion-item>
-        <ion-label class="text-left" stacked>Filtrar por data</ion-label>
-        <ion-input ngModel="pesquisar" name="data" type="date"></ion-input>
-      </ion-item>
 
 
-  <ion-list *ngFor="let listaalunos of listaAlunos" class="borda">
+  <ion-list *ngFor="let listafalta of listaFalta" class="borda">
     <ion-item>
-      <input type="date" data-date="" data-date-format="DD MMMM YYYY" value="{{listaalunos.data}}" disabled>
-      <h2>Nome: {{listaalunos.aluno.nome}}</h2>
-      <p>RA: {{listaalunos.aluno.ra}}</p>
-      <p>Materia: {{listaalunos.materia.nome}}</p> 
+      <input type="date" data-date="" data-date-format="DD MMMM YYYY" value="{{listafalta.data}}" disabled>
+      <h2>Nome: {{listafalta.aluno.nome}}</h2>
+      <p>RA: {{listafalta.aluno.ra}}</p>
+      <p>Materia: {{listafalta.materia.nome}}</p> 
     </ion-item>
   </ion-list>
 
@@ -46,5 +36,4 @@
     </div>
     </ion-toolbar>
   </ion-footer>  -->
-  <button ion-button block (click)="irParaListaFalta()">Faltantes</button>
 </ion-content>

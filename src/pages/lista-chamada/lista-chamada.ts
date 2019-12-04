@@ -56,4 +56,7 @@ export class ListaChamadaPage {
   public irParaListaAlunos(){
     this.navCtrl.setRoot('ListaChamadaPage')
   }
+  public irParaListaFalta(){
+    this.navCtrl.push('ListaFaltaPage')
+  }
 }
