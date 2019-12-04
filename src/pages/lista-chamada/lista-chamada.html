@@ -8,15 +8,16 @@
   <ion-navbar color="primary">
     <ion-title>Lista Alunos</ion-title>
   </ion-navbar>
+  <ion-toolbar>
+    <ion-searchbar placeholder="Digite o aluno" 
+                    [(ngModel)]="queryText" 
+                    (ionInput)="filterAluno($event)"
+                    clearInput>
+    </ion-searchbar>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-    <ion-item>
-        <ion-label class="text-left" stacked>Filtrar por data</ion-label>
-        <ion-input ngModel="pesquisar" name="data" type="date"></ion-input>
-      </ion-item>
-
-
   <ion-list *ngFor="let listaalunos of listaAlunos" class="borda">
     <ion-item>
       <input type="date" data-date="" data-date-format="DD MMMM YYYY" value="{{listaalunos.data}}" disabled>

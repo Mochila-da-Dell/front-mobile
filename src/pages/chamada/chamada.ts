@@ -66,4 +66,19 @@ export class ChamadaPage {
       return;
     })
   }
+ 
+  cancelarToken(){
+    let postToken = new FormData();
+     this._http.put(this._url+'/token-chamada/atualizar/'+this.result.token, postToken)
+      .subscribe( 
+        response => {
+                    console.log(response);
+                  },
+        error => {
+                    alert(error);
+                    console.log(error);
+    });
+     console.log(this.result.token);
+               
+  }
 }

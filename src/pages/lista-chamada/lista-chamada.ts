@@ -1,7 +1,10 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
 import { ListaAlunos } from '../../models/lista_alunos.dto';
+import { SelectSearchableComponent } from 'ionic-select-searchable';
+
+import _ from 'lodash';
 
 /**
  * Generated class for the ListaChamadaPage page.
@@ -19,10 +22,16 @@ export class ListaChamadaPage {
 
   public listaAlunos: ListaAlunos[];
   
+  allAlunos:any;
+  queryText: string;
+  
+  @ViewChild('myselect') selectComponent: SelectSearchableComponent;
+  
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    private _http: HttpClient,) {
+    private _http: HttpClient,
+    private toastCtrl: ToastController) {
     
       this._http.get<ListaAlunos[]>('http://localhost:8080/chamada/listar')
     .subscribe(
@@ -31,9 +40,36 @@ export class ListaChamadaPage {
         this.listaAlunos = listaAlunos;
       }
     );
-  
-  }
+    
+    this.queryText = '';
 
+    this.allAlunos = this.listaAlunos;
+  }
+  public alunoChange(event: {componen: SelectSearchableComponent, value: any}){
+    console.log('event: ', event);
+  }
+  onClose(){
+    let toast = this.toastCtrl.create({
+      message: 'Thanks for your selection',
+      duration: 2000
+    });
+    toast.present();
+  }
+  openFromCode(){
+    this.selectComponent.open();
+  }
+  public filterAluno(alu: any){
+    console.log(alu);
+    let val = alu.target.value;
+    if(val && val.trim() != ''){
+      this.listaAlunos =  _.values(this.allAlunos);
+      this.listaAlunos = this.listaAlunos.filter((listaAluno) =>{
+        return (listaAluno.data.toLowerCase().indexOf(val.toLowerCase()) > -1);
+      })
+    } else {
+      this.listaAlunos = this.allAlunos;
+    } 
+  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad ListaChamadaPage');
   }

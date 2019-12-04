@@ -36,6 +36,7 @@ import { ProfessordaoProvider } from '../providers/professordao/professordao';
 import { AlunoDaoProvider } from '../providers/aluno-dao/aluno-dao';
 import { TokenChamadaServiceProvider } from '../providers/token-chamada-service/token-chamada-service';
 import { TokenChamadaDaoProvider } from '../providers/token-chamada-dao/token-chamada-dao';
+import { SelectSearchableModule } from 'ionic-select-searchable';
 
 
 
@@ -55,7 +56,8 @@ import { TokenChamadaDaoProvider } from '../providers/token-chamada-dao/token-ch
       name: 'appChamada',
       storeName: 'mydb',
       driverOrder: ['indexeddb']
-    })
+    }),
+    SelectSearchableModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
